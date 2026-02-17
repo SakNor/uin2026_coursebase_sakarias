@@ -10,6 +10,8 @@ import About from './components/About'
 import Layout from './components/Layout'
 import Category from './components/Category'
 import CategoryLayout from './components/CategoryLayout'
+import { useState } from 'react'
+import { useEffect} from 'react'
 
 function App() {
 
