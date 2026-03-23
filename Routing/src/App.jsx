@@ -11,45 +11,21 @@ import Layout from './components/Layout'
 import Category from './components/Category'
 import CategoryLayout from './components/CategoryLayout'
 import { useState } from 'react'
-import { useEffect} from 'react'
+import { useEffect } from 'react'
 
 function App() {
 
   return (
-    
-    // Layout er et "wrapper"-komponent
-    // Den inneholder typisk header, navbar, footer osv, alstå alt som skal være LIKT på alle sidene
-    // Alt inni <Layout> vises inni denne strukturen
     <Layout>
-      
-      {/* Routes brukes for å definere alle routene i appen */}
       <Routes>
-
-        {/* Index route = startsiden ("/") */}
-        {/* Når path er "/" rendres Home */}
         <Route index element={<Home />} />
-
-        {/* Parent route for /categories */}
-        {/* Når vi går til /categories brukes CategoryLayout */}
         <Route path='categories' element={<CategoryLayout />}>
-
-          {/* Index route for /categories */}
-          {/* Når path er /categories rendres Categories inni CategoryLayout */}
-          <Route index element={<Categories />} />
-
-          {/* Dynamisk route */}
-          {/* :slug er en URL-parameter */}
-          {/* Eksempel: /categories/sport */}
-          {/* Da vil slug = "sport" */}
-          <Route path=':slug' element={<Category />} />
-
+          <Route index element={<h1>Kategorier</h1>} />
+          <Route path=':slug' element={<Categories />} />
+          <Route path=':slug/:cat' element={<Category />} />
         </Route>
-
-        {/* Route for /about */}
         <Route path='about' element={<About />} />
-
       </Routes>
-
     </Layout>
 
   )
